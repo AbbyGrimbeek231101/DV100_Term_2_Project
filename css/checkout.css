@@ -55,7 +55,7 @@
 }
 
 .jumbotron {
-    background-image: url("../assets/headerImages.jpg");
+    background-image: url("../assets/moreimages/chris-zhang-3LWJ2nva50k-unsplash.jpg");
     background-size: cover;
     background-position: center;
     color: rgb(255, 255, 255);
@@ -138,4 +138,5 @@ select, input[type="text"] {
 #subCost, #finalAmount {
     font-weight: bold;
 }
-  
+
+
