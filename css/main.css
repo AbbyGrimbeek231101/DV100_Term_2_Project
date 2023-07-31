@@ -198,6 +198,50 @@ header-1{
     color: #000000;
   }
   
+  .monthSubImage{
+    height: 250px;
+    min-width: 200px;
+    max-width: 400px;
+    margin: 0 auto !important;
+    padding: 0 auto !important;
+}
+.monthSubInfo{
+    height: 202px;
+    margin: 0 auto !important;
+    padding: 0 auto !important;
+}
+.monthSubName{
+    margin: 0 auto !important;
+    padding: 0 auto !important;
+}
+
+.monthSubIngredients{
+    margin: 0 auto;
+    text-align: center;
+    height: 160px;
+}
+.monthSubIngredients ul {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    text-align: left;
+}
+.orderFeedback{
+    width: 100%;
+    float: right;
+}
+.card{
+    margin: 0 auto;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-primary:hover{
+  background-color: white !important;
+  color: #FFFF00 !important;
+  border: solid 1px #FFFF00 !important;
+}
 
 
 

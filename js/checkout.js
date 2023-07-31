@@ -1,58 +1,101 @@
-function loadOrderDetails() {
-    // Retrieve the order details from local storage or any other data source
-    var orderDetails = JSON.parse(localStorage.getItem("orderDetails"));
-  
-    if (orderDetails) {
-      var orderDetailsContainer = document.getElementById("orderDetails");
-      orderDetailsContainer.innerHTML = ""; // Clear existing order details
-  
-      for (var i = 0; i < orderDetails.length; i++) {
-        var subName = orderDetails[i].subName;
-        var subCost = orderDetails[i].subCost;
-  
-        var subElement = document.createElement("div");
-        subElement.textContent = subName + " - $" + subCost.toFixed(2);
-  
-        orderDetailsContainer.appendChild(subElement);
-      }
+let totalPrice = 0;
+let finalPrice = 0;
+let validCode = false;
+
+showOrder = () => {
+    //
+    let data = JSON.parse(localStorage.getItem('subs'));
+    let items = document.getElementById("tableSubs");
+    let totalArea = document.getElementById("totalArea");
+    let finalArea = document.getElementById("finalArea");
+    
+    for (let i = 0; i < data.length; i++) {
+        let currName = data[i].name;
+        let currBread = data[i].breadType;
+        let currToppings = data[i].toppings.join(", ");
+        let currSauces = data[i].sauces.join(", ");
+        let currPrice = data[i].price;
+        totalPrice += currPrice;
+
+        items.innerHTML += `
+            <tr>
+                <td>${currName}</td>
+                <td><strong>Bread Type:</strong> ${currBread}
+                <br><strong>Toppings:</strong> ${currToppings}
+                <br><strong>Sauce(s):</strong> ${currSauces}</td>
+                <td>R ${currPrice.toFixed(2)}</td>
+            </tr>
+        `
     }
-  }
-  
-  function applyCoupon() {
-    var couponCode = document.getElementById("couponCode").value;
-    // Apply the coupon logic and update the final amount
-  }
-  
-  window.addEventListener("load", function() {
-    loadOrderDetails();
-  });
-  
-
-  var slidePosition = 1;
-SlideShow(slidePosition);
-
-// forward/Back controls
-function plusSlides(n) {
-  SlideShow(slidePosition += n);
+    totalArea.innerHTML = `
+        R ${totalPrice}.00
+    `
+    finalPrice = totalPrice;
+    finalArea.innerHTML = `
+        R ${finalPrice}.00
+    `
 }
 
-//  images controls
-function currentSlide(n) {
-  SlideShow(slidePosition = n);
+validateCoupon = () => {
+    let validCodes = ["PENNYWISE30", "SUPERSUBS23", "MUNCHIES50"];
+    let discountAmounts = [30, 23, 50];
+    let numCoupons = 3;
+    let couponCode = document.getElementById("couponCode").value;
+
+    let index = 0;
+    for (let i = 0; i < numCoupons; i++) {
+        if (validCode == false) {
+            if (couponCode == validCodes[i]) {
+                validCode = true;
+                index = i;
+            }
+        }
+    }
+
+    let savings = 0;
+    finalPrice = totalPrice;
+    
+    if (validCode === true) {
+        savings = totalPrice * (discountAmounts[index] / 100);
+        finalPrice -= savings;
+        
+        document.getElementById("finalSection").innerHTML = `
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Total Price</th>
+                  <th scope="col">Discount Applied</th>
+                  <th scope="col">Discount Amount</th>
+                  <th scope="col">Final Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td id="totalArea">R ${totalPrice.toFixed(2)}</td>
+                  <td>Yes</td>
+                  <td>- ${discountAmounts[index]} % (- R ${savings.toFixed(2)})</td>
+                  <td id="finalArea">R ${finalPrice.toFixed(2)}</td>
+                </tr>
+              </tbody>
+            </table>
+        `
+        document.getElementById("discountSection").innerHTML = `
+            <div class="col-8">
+                <input type="text" class="form-control" id="couponCode">
+            </div>
+            <div class="col-4">
+                <p class="lead">
+                <a class="btn btn-primary btn-lg bg-superSubOrange disabled" role="button" style="margin-top: -5px;" onclick="validateCoupon()">Apply</a>
+                </p>
+            </div>
+        `
+    }
+    else {
+        alert("That coupon code is not valid");
+    }
 }
 
-function SlideShow(n) {
-  var i;
-  var slides = document.getElementsByClassName("Containers");
-  var circles = document.getElementsByClassName("dots");
-  if (n > slides.length) {slidePosition = 1}
-  if (n < 1) {slidePosition = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < circles.length; i++) {
-      circles[i].className = circles[i].className.replace(" enable", "");
-  }
-  slides[slidePosition-1].style.display = "block";
-  circles[slidePosition-1].className += " enable";
-} 
+resetHome = () => {
+    localStorage.removeItem('subs');
+    window.location.href = "../index.html";
+}
