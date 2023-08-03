@@ -37,8 +37,8 @@ showOrder = () => {
 }
 
 validateCoupon = () => {
-    let validCodes = ["PENNYWISE30", "SUPERSUBS23", "MUNCHIES50"];
-    let discountAmounts = [30, 23, 50];
+    let validCodes = ["OFF10", "DISCOUNTDETECTIVE25", "SWEETSAVINGS50"];
+    let discountAmounts = [10, 25, 50];
     let numCoupons = 3;
     let couponCode = document.getElementById("couponCode").value;
 

@@ -88,37 +88,37 @@ getToppingsArr = () => {
 
     allToppingsArr.push(document.getElementById("Ham")); 
     allToppingsArr.push(document.getElementById("Salami")); 
-    allToppingsArr.push(document.getElementById("Smoked Turkey")); 
-    allToppingsArr.push(document.getElementById("Fried Chicken")); 
+    allToppingsArr.push(document.getElementById("Peri Peri Chicken Livers")); 
+    allToppingsArr.push(document.getElementById("Chicken strips")); 
     allToppingsArr.push(document.getElementById("Roast Beef")); 
     allToppingsArr.push(document.getElementById("Bacon")); 
-    allToppingsArr.push(document.getElementById("Pepperoni")); 
-    allToppingsArr.push(document.getElementById("Prosciutto")); 
+    allToppingsArr.push(document.getElementById("Macon")); 
+    allToppingsArr.push(document.getElementById("Smoked Salmon")); 
     allToppingsArr.push(document.getElementById("Tuna")); 
-    allToppingsArr.push(document.getElementById("Grilled Chicken")); 
-    allToppingsArr.push(document.getElementById("Pastrami")); 
-    allToppingsArr.push(document.getElementById("Sliced Pork")); 
+    allToppingsArr.push(document.getElementById("Chicken")); 
+    allToppingsArr.push(document.getElementById("Biltong")); 
+    allToppingsArr.push(document.getElementById("Steak")); 
     allToppingsArr.push(document.getElementById("Meatballs")); 
     allToppingsArr.push(document.getElementById("Cheddar Cheese")); 
-    allToppingsArr.push(document.getElementById("Swiss Cheese")); 
-    allToppingsArr.push(document.getElementById("Provolone Cheese")); 
-    allToppingsArr.push(document.getElementById("Pepper Jack Cheese")); 
+    allToppingsArr.push(document.getElementById("Gouda Cheese")); 
+    allToppingsArr.push(document.getElementById("Mozzarella")); 
+    allToppingsArr.push(document.getElementById("Cream Cheese")); 
     allToppingsArr.push(document.getElementById("Feta Cheese")); 
     allToppingsArr.push(document.getElementById("Tomato")); 
     allToppingsArr.push(document.getElementById("Gherkins")); 
-    allToppingsArr.push(document.getElementById("Peppers")); 
-    allToppingsArr.push(document.getElementById("Jalapeño Peppers")); 
+    allToppingsArr.push(document.getElementById("Halloumi")); 
+    allToppingsArr.push(document.getElementById("Caramelised Onions")); 
     allToppingsArr.push(document.getElementById("Red Onion")); 
-    allToppingsArr.push(document.getElementById("Sweet Onion")); 
+    allToppingsArr.push(document.getElementById("Peppadew Peppers")); 
     allToppingsArr.push(document.getElementById("Shredded Lettuce")); 
     allToppingsArr.push(document.getElementById("Cucumber Slices")); 
     allToppingsArr.push(document.getElementById("Avocado Slices")); 
-    allToppingsArr.push(document.getElementById("Olives")); 
-    allToppingsArr.push(document.getElementById("Mushrooms")); 
-    allToppingsArr.push(document.getElementById("Sun-Dried Tomatoes")); 
-    allToppingsArr.push(document.getElementById("Pineapple Chunks")); 
-    allToppingsArr.push(document.getElementById("Guacamole")); 
-    allToppingsArr.push(document.getElementById("Onion Rings"));
+    allToppingsArr.push(document.getElementById("Green Olives")); 
+    allToppingsArr.push(document.getElementById("Sliced Cabbage")); 
+    allToppingsArr.push(document.getElementById("Basil")); 
+    allToppingsArr.push(document.getElementById("Spinach")); 
+    allToppingsArr.push(document.getElementById("Fried Egg")); 
+    allToppingsArr.push(document.getElementById("Sliced Banana"));
 
     // Get an array of the toppings that are added //
     let toppingsArr = [];
@@ -134,14 +134,14 @@ getSaucesArr = () => {
     // Get an array of all possible sauces //
     let allSaucesArr = [];
 
-    allSaucesArr.push(document.getElementById("Tangy Mayonnaise")); 
+    allSaucesArr.push(document.getElementById("Mayonnaise")); 
     allSaucesArr.push(document.getElementById("Mustard")); 
     allSaucesArr.push(document.getElementById("Honey Mustard")); 
     allSaucesArr.push(document.getElementById("Sweet Chilli")); 
     allSaucesArr.push(document.getElementById("BBQ Sauce")); 
-    allSaucesArr.push(document.getElementById("Hot Sauce")); 
-    allSaucesArr.push(document.getElementById("Ranch Dressing")); 
-    allSaucesArr.push(document.getElementById("Secret Sub Sauce")); 
+    allSaucesArr.push(document.getElementById("Salsa")); 
+    allSaucesArr.push(document.getElementById("Ranch ")); 
+    allSaucesArr.push(document.getElementById("Thousand Island Sauce")); 
 
     // Get an array of the sauces that are added //
     let saucesArr = [];
@@ -157,19 +157,21 @@ getSaucesArr = () => {
 getBreadPrice = () =>{
     let breadType = document.getElementById("breadChoice").value;
 
-    if (breadType === "Base Roll") {
+    if (breadType === "White Breadl") {
         breadPrice = 8;
     } else if (breadType === "Sesame Seed Roll") {
         breadPrice = 10;
     } else if (breadType === "Rye Bread") {
         breadPrice = 12;
-    } else if (breadType === "Wholewheat Bread") {
+    } else if (breadType === "Brown Bread") {
         breadPrice = 10;
     } else if (breadType === "Sourdough Bread") {
         breadPrice = 12;
-    } else if (breadType === "Garlic Bread") {
+    } else if (breadType === "Seeded Bread") {
         breadPrice = 14;
     } else if (breadType === "Baguette") {
+        breadPrice = 14;
+    } else if (breadType === "Ciabatta") {
         breadPrice = 14;
     }
 
@@ -499,7 +501,7 @@ clearForm = () => {
         <h4 style="margin-top: 40px;" id="runningPrice"><strong>Price: </strong>R 8.00</h4>
 
         <p class="lead" id="addButton">
-        <a class="btn btn-primary btn-lg bg-superSubOrange disabled" role="button" style="margin-top: 40px;" onclick="makeMySub()">Add Sub to Your Order</a>
+        <a class="btn disabled" role="button" style="margin-top: 40px;" onclick="makeMySub()">Add Sub to Your Order</a>
         </p>
 
     </form>
